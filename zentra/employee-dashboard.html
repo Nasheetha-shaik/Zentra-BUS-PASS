@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty & Employee Dashboard - Zentra</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header"></header>
+
+  <!-- Dashboard Architecture -->
+  <div class="dashboard-layout">
+    
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar">
+      <div>
+        <div class="sidebar-profile">
+          <div class="sidebar-avatar" style="background:linear-gradient(135deg, #4f46e5, #7c3aed);">👨‍🏫</div>
+          <div>
+            <div class="sidebar-user-name" id="empWelcomeName">Faculty Member</div>
+            <div class="sidebar-user-role">University Staff</div>
+          </div>
+        </div>
+
+        <ul class="sidebar-nav">
+          <li><a href="employee-dashboard.html" class="sidebar-link active"><span>📊 Dashboard</span></a></li>
+          <li><a href="application.html" class="sidebar-link"><span>📝 Apply for Bus Pass</span></a></li>
+          <li><a href="#empAppSection" class="sidebar-link"><span>📋 My Application</span></a></li>
+          <li><a href="bus-pass.html" class="sidebar-link"><span>🎫 My Bus Pass</span></a></li>
+          <li><a href="routes.html" class="sidebar-link"><span>🚍 Campus Routes</span></a></li>
+          <li><a href="javascript:void(0)" onclick="toggleNotificationsDrawer()" class="sidebar-link"><span>🔔 Notifications</span></a></li>
+          <li><a href="javascript:void(0)" onclick="openEmployeeProfileModal()" class="sidebar-link"><span>👤 My Profile</span></a></li>
+        </ul>
+      </div>
+
+      <div style="padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+        <button onclick="logoutUser()" class="btn btn-outline btn-sm" style="width: 100%; color: var(--status-rejected); border-color: #fecaca;">
+          🚪 Log Out
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="dashboard-main">
+      
+      <!-- Welcome Header -->
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1.75rem;">
+        <div>
+          <h1 style="color:var(--primary-navy); font-size:1.75rem; font-weight:800;">Faculty & Staff Transit Portal</h1>
+          <p style="color:var(--text-secondary); font-size:0.92rem;">University employee commuter service and digital transit pass tracking.</p>
+        </div>
+
+        <div style="display:flex; gap:0.75rem;">
+          <a href="application.html" class="btn btn-primary btn-sm">➕ Apply for Staff Pass</a>
+          <a href="routes.html" class="btn btn-outline btn-sm">🚍 Explore Routes</a>
+        </div>
+      </div>
+
+      <!-- Staff Subsidy Banner -->
+      <div style="background: linear-gradient(135deg, #f5f3ff, #ede9fe); border: 1px solid #ddd6fe; border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; margin-bottom: 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <div style="font-size: 2rem;">🎓</div>
+          <div>
+            <h4 style="color: #4338ca; margin-bottom: 0.2rem;">University Employee Transportation Subsidy</h4>
+            <p style="color: #6366f1; font-size: 0.88rem;">All university staff and faculty bus passes are 100% subsidized by administration. No transport fee payment required.</p>
+          </div>
+        </div>
+        <span class="badge" style="background:#4338ca; color:#ffffff;">FEE EXEMPTED</span>
+      </div>
+
+      <!-- Quick Actions Strip -->
+      <div class="actions-strip">
+        <a href="application.html" class="btn btn-outline btn-sm">📝 Apply for Pass</a>
+        <a href="#empTimelineCard" class="btn btn-outline btn-sm">📍 Track Status</a>
+        <a href="routes.html" class="btn btn-outline btn-sm">🗺️ View Bus Routes</a>
+        <a href="bus-pass.html" class="btn btn-outline btn-sm">🎫 View Digital Pass</a>
+        <button class="btn btn-outline btn-sm" onclick="openEmployeeProfileModal()">👤 Edit Profile</button>
+      </div>
+
+      <!-- KPI Overview Cards (Injected by employee.js) -->
+      <div class="metrics-grid" id="empMetricsGrid">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Application Status Visual Timeline -->
+      <div class="card" id="empTimelineCard">
+        <div class="card-header">
+          <div class="card-title">
+            <span>📍 Application Progress Timeline</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div id="empTimelineContainer">
+            <!-- Timeline injected dynamically by employee.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Application Details Card -->
+      <div class="card" id="empAppSection">
+        <div class="card-header">
+          <div class="card-title">
+            <span>🚌 Current Bus Pass Details</span>
+          </div>
+        </div>
+        <div class="card-body" id="empApplicationDetails">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer"></footer>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/employee.js"></script>
+  <script src="js/notification.js"></script>
+  <script src="js/ai-assistant.js"></script>
+</body>
+</html>

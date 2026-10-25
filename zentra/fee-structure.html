@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Fee Details (Academic Year 2026–27) - Zentra</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header"></header>
+
+  <!-- Page Header -->
+  <section style="background: radial-gradient(circle at top right, rgba(0, 180, 216, 0.1), transparent 50%), linear-gradient(180deg, #ffffff 0%, var(--bg-main) 100%); padding: 3.5rem 0 2rem; border-bottom: 1px solid var(--border-color);">
+    <div class="container">
+      <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+        <span class="badge-ay badge-ay-official">
+          📅 Academic Year 2026–27
+        </span>
+        <span class="badge-ay">
+          Official Notification: F. No. RO/RA/21-26/A256, dt. 27.05.2026
+        </span>
+      </div>
+      <h1 class="section-title" style="font-size: 2.3rem; margin-bottom: 0.5rem;">Bus Fee Details – Academic Year 2026–27</h1>
+      <p class="section-desc" style="margin: 0; max-width: 750px;">
+        Official approved university transportation fee schedule exclusively for <strong>Academic Year 2026–27</strong>. Browse all 28 designated boarding points, inspect corridor categories, review fee concessions, and view your applicable fee before submitting your pass application.
+      </p>
+
+      <!-- Key Statistics Strip -->
+      <div style="display: flex; gap: 1.5rem; margin-top: 1.75rem; flex-wrap: wrap;">
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 0.65rem 1.25rem; display: flex; align-items: center; gap: 0.75rem;">
+          <span style="font-size: 1.5rem;">📍</span>
+          <div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: var(--primary-navy);" id="statTotalStops">28</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase;">Official Stops</div>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 0.65rem 1.25rem; display: flex; align-items: center; gap: 0.75rem;">
+          <span style="font-size: 1.5rem;">🏷️</span>
+          <div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: var(--status-approved);">₹22,400</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase;">Lowest Slab (Tenali)</div>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 0.65rem 1.25rem; display: flex; align-items: center; gap: 0.75rem;">
+          <span style="font-size: 1.5rem;">🚌</span>
+          <div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: var(--accent-blue);">₹56,400</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase;">Metro Slab (Vijayawada)</div>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 0.65rem 1.25rem; display: flex; align-items: center; gap: 0.75rem;">
+          <span style="font-size: 1.5rem;">🎓</span>
+          <div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: #7c3aed;">≥ 7.00 SGPA</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase;">Scholarship Concession</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <main class="container" style="padding: 2.5rem 1.5rem 4.5rem;">
+
+    <!-- Interactive Pre-Application Fee Calculator / Lookup Box -->
+    <div class="fee-calc-box">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+        <div>
+          <h3 style="color: var(--primary-navy); margin-bottom: 0.25rem; font-size: 1.2rem;">
+            🔍 View Your Applicable Fee Before Applying
+          </h3>
+          <p style="color: var(--text-secondary); font-size: 0.88rem; margin: 0;">
+            Select your daily boarding point to inspect the exact official fee payable for Academic Year 2026–27.
+          </p>
+        </div>
+        <span class="badge-ay">Academic Year 2026–27</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) auto; gap: 1rem; align-items: flex-end;">
+        <div>
+          <label class="form-label" for="calcBoardingSelect">Select Boarding Point / Stop</label>
+          <select class="form-control" id="calcBoardingSelect">
+            <option value="">-- Choose your boarding point (28 Locations) --</option>
+          </select>
+        </div>
+
+        <div id="calcResultDisplay" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 0.6rem 1.25rem; min-width: 260px; display: flex; align-items: center; justify-content: space-between;">
+          <div>
+            <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Official AY 2026–27 Fee:</span>
+            <div style="font-size: 1.35rem; font-weight: 800; color: var(--accent-blue);" id="calcFeeValue">--</div>
+          </div>
+          <div id="calcRegionTag" style="font-size: 0.75rem; color: var(--text-muted); text-align: right;"></div>
+        </div>
+
+        <div>
+          <a href="application.html" id="calcApplyBtn" class="btn btn-primary" style="height: 44px; display: inline-flex; align-items: center;">
+            Apply for Bus Pass ➔
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section Heading & Search / Filter Controls -->
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem;">
+      <div>
+        <h2 style="font-size: 1.45rem; color: var(--primary-navy); margin-bottom: 0.25rem;">
+          Official Boarding Points & Fee Schedule (AY 2026–27)
+        </h2>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">
+          All amounts in Indian Rupees (₹) as per Official Proceedings F. No. RO/RA/21-26/A256.
+        </p>
+      </div>
+
+      <div style="width: 100%; max-width: 320px;">
+        <input type="text" class="form-control" id="feeSearchInput" placeholder="🔍 Search boarding stop or region...">
+      </div>
+    </div>
+
+    <!-- Region Filter Pills -->
+    <div class="filter-pills-bar" id="regionFilterPills">
+      <button class="filter-pill active" data-region="ALL">All Categories (28)</button>
+      <button class="filter-pill" data-region="Guntur">Guntur Urban & Highway</button>
+      <button class="filter-pill" data-region="Vijayawada">Vijayawada Metro</button>
+      <button class="filter-pill" data-region="Capital">Capital Corridor</button>
+      <button class="filter-pill" data-region="Tenali">Tenali & Duggirala Belt</button>
+      <button class="filter-pill" data-region="Coastal">Coastal & Repalle Belt</button>
+    </div>
+
+    <!-- Official Bus Fee Table (Clean, Professional & Mobile-Responsive) -->
+    <div class="fee-table-wrap">
+      <table class="fee-table" id="officialFeeTable">
+        <thead>
+          <tr>
+            <th style="width: 60px; text-align: center;">S.No</th>
+            <th>Boarding Point / Stop</th>
+            <th>Regional Corridor</th>
+            <th style="text-align: center;">Academic Year</th>
+            <th style="text-align: right;">Official Bus Fee</th>
+            <th style="text-align: center; width: 160px;">Pass Action</th>
+          </tr>
+        </thead>
+        <tbody id="feeTableBody">
+          <!-- Dynamic 28 rows populated by JavaScript -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Official Guidelines, Concessions & Bank Remittance Section -->
+    <div style="margin-top: 3.5rem;">
+      <div class="section-tag">Official Terms & Policies</div>
+      <h2 style="font-size: 1.55rem; color: var(--primary-navy); margin-bottom: 0.5rem;">
+        Guidelines, Bank Details & Fee Concessions (AY 2026–27)
+      </h2>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; max-width: 750px; margin-bottom: 1.5rem;">
+        The following regulations and conditions are prescribed by the university transport authority for the academic session 2026–27:
+      </p>
+
+      <div class="official-guidelines-grid">
+        <!-- 1. Dedicated Bank Remittance Account -->
+        <div class="guideline-card" style="border-top: 4px solid var(--accent-blue);">
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <span style="font-size: 1.3rem;">🏦</span>
+            <h4 style="color: var(--primary-navy); font-size: 1.05rem; margin: 0;">Transport Fee Remittance</h4>
+          </div>
+          <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.85rem;">
+            Official bank details for offline / NEFT / RTGS transport fee clearance:
+          </p>
+          <div class="bank-detail-row">
+            <span style="color: var(--text-muted);">Bank Name:</span>
+            <strong>Punjab National Bank</strong>
+          </div>
+          <div class="bank-detail-row">
+            <span style="color: var(--text-muted);">Branch:</span>
+            <strong>Station Road, Guntur</strong>
+          </div>
+          <div class="bank-detail-row">
+            <span style="color: var(--text-muted);">Account Number:</span>
+            <code style="font-weight: 700; color: var(--primary-navy);">0195000109168835</code>
+          </div>
+          <div class="bank-detail-row">
+            <span style="color: var(--text-muted);">IFSC Code:</span>
+            <code style="font-weight: 700; color: var(--accent-blue);">PUNB0019500</code>
+          </div>
+          <div class="bank-detail-row">
+            <span style="color: var(--text-muted);">Academic Year:</span>
+            <strong style="color: var(--primary-navy);">2026–27</strong>
+          </div>
+        </div>
+
+        <!-- 2. Merit Scholarship & Concession -->
+        <div class="guideline-card" style="border-top: 4px solid #7c3aed;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <span style="font-size: 1.3rem;">🎓</span>
+            <h4 style="color: var(--primary-navy); font-size: 1.05rem; margin: 0;">Scholarship Concession</h4>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0.75rem;">
+            Full transport fee must be paid initially during pass application. Students who maintain a minimum of <strong>7.00 SGPA</strong> in the preceding semester examination with no standing backlogs are eligible for transport scholarship concession.
+          </p>
+          <div style="background: var(--bg-subtle); border-radius: var(--radius-sm); padding: 0.65rem; font-size: 0.8rem; color: var(--text-primary); border: 1px dashed var(--border-color);">
+            💡 <em>Reimbursement is directly processed through electronic funds transfer (NEFT) to the applicant's verified bank account after semester grade validation.</em>
+          </div>
+        </div>
+
+        <!-- 3. Faculty & Employee Subsidy -->
+        <div class="guideline-card" style="border-top: 4px solid var(--status-approved);">
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <span style="font-size: 1.3rem;">👥</span>
+            <h4 style="color: var(--primary-navy); font-size: 1.05rem; margin: 0;">Faculty & Staff Privilege</h4>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0.75rem;">
+            University professors, lecturers, researchers, and campus administrative staff are entitled to a <strong>100% subsidized transit benefit</strong>.
+          </p>
+          <ul style="font-size: 0.82rem; color: var(--text-secondary); padding-left: 1.25rem; line-height: 1.6;">
+            <li>Zero transport fee required for employee bus pass.</li>
+            <li>Instant authorization with valid Employee ID.</li>
+            <li>Same boarding points and routes as student passes.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer"></footer>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/notification.js"></script>
+  <script src="js/ai-assistant.js"></script>
+
+  <script>
+    /**
+     * Dedicated Fee Structure Controller for Academic Year 2026–27
+     * Pure Vanilla JavaScript ES6+
+     */
+    let currentFeeList = [];
+    let selectedRegionFilter = 'ALL';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      currentFeeList = getOfficialFeeSchedule();
+      populateCalculatorDropdown(currentFeeList);
+      renderOfficialFeeTable(currentFeeList);
+      setupFeeSearchAndFilters();
+      handleUrlPreselect();
+    });
+
+    /**
+     * Populates the pre-application fee calculator dropdown
+     */
+    function populateCalculatorDropdown(schedule) {
+      const select = document.getElementById('calcBoardingSelect');
+      if (!select) return;
+
+      select.innerHTML = '<option value="">-- Choose your boarding point (28 Locations) --</option>' +
+        schedule.map(item => `
+          <option value="${item.boardingPoint}">
+            ${item.sNo}. ${item.boardingPoint} (₹${item.amount.toLocaleString('en-IN')}) - ${item.region}
+          </option>
+        `).join('');
+
+      select.addEventListener('change', (e) => {
+        handleCalculatorChange(e.target.value);
+      });
+    }
+
+    /**
+     * Updates fee calculator preview when user chooses a boarding point
+     */
+    function handleCalculatorChange(boardingPoint) {
+      const valDisplay = document.getElementById('calcFeeValue');
+      const tagDisplay = document.getElementById('calcRegionTag');
+      const applyBtn = document.getElementById('calcApplyBtn');
+
+      if (!boardingPoint) {
+        if (valDisplay) valDisplay.textContent = '--';
+        if (tagDisplay) tagDisplay.textContent = '';
+        if (applyBtn) applyBtn.href = 'application.html';
+        return;
+      }
+
+      const item = getOfficialFeeForBoardingPoint(boardingPoint);
+      if (item) {
+        if (valDisplay) valDisplay.textContent = `₹${item.amount.toLocaleString('en-IN')}`;
+        if (tagDisplay) tagDisplay.innerHTML = `<strong>${item.region}</strong><br><span style="color:var(--status-approved);">AY 2026–27 Official</span>`;
+        if (applyBtn) {
+          applyBtn.href = `application.html?boardingPoint=${encodeURIComponent(item.boardingPoint)}&routeId=${item.routeId || 'R01'}`;
+        }
+      }
+    }
+
+    /**
+     * Renders the 28 fee rows in the official table
+     */
+    function renderOfficialFeeTable(items) {
+      const tbody = document.getElementById('feeTableBody');
+      if (!tbody) return;
+
+      if (items.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="6" style="text-align: center; padding: 2.5rem; color: var(--text-muted);">
+              No official boarding points found matching your search.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = items.map(item => {
+        const formattedAmount = `₹${item.amount.toLocaleString('en-IN')}`;
+        const applyUrl = `application.html?boardingPoint=${encodeURIComponent(item.boardingPoint)}&routeId=${item.routeId || 'R01'}`;
+
+        return `
+          <tr>
+            <td style="text-align: center; font-weight: 700; color: var(--text-muted); font-size: 0.82rem;">
+              ${item.sNo}
+            </td>
+            <td>
+              <div style="font-weight: 700; color: var(--primary-navy); font-size: 0.98rem;">
+                ${item.boardingPoint}
+              </div>
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 2px;">
+                ${item.corridor || 'Designated Campus Transit Corridor'}
+              </div>
+            </td>
+            <td>
+              <span style="display: inline-block; background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.2rem 0.55rem; font-size: 0.78rem; color: var(--text-secondary); font-weight: 600;">
+                ${item.region}
+              </span>
+            </td>
+            <td style="text-align: center;">
+              <span class="badge-ay" style="font-size: 0.72rem; padding: 0.2rem 0.6rem;">
+                2026–27
+              </span>
+            </td>
+            <td style="text-align: right;" class="fee-amount-cell">
+              <span class="currency-symbol">₹</span>${item.amount.toLocaleString('en-IN')}
+            </td>
+            <td style="text-align: center;">
+              <a href="${applyUrl}" class="btn btn-outline btn-sm" style="font-size: 0.78rem; padding: 0.35rem 0.75rem; white-space: nowrap;">
+                Apply for Stop ➔
+              </a>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    /**
+     * Sets up Search and Region Filter events
+     */
+    function setupFeeSearchAndFilters() {
+      const searchInput = document.getElementById('feeSearchInput');
+      if (searchInput) {
+        searchInput.addEventListener('input', applyFilters);
+      }
+
+      const filterPills = document.querySelectorAll('.filter-pill');
+      filterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          filterPills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          selectedRegionFilter = pill.getAttribute('data-region') || 'ALL';
+          applyFilters();
+        });
+      });
+    }
+
+    /**
+     * Applies search text and region filter to the schedule
+     */
+    function applyFilters() {
+      const query = (document.getElementById('feeSearchInput')?.value || '').toLowerCase().trim();
+
+      const filtered = currentFeeList.filter(item => {
+        // Text Match
+        const matchesQuery = 
+          item.boardingPoint.toLowerCase().includes(query) ||
+          item.region.toLowerCase().includes(query) ||
+          (item.corridor && item.corridor.toLowerCase().includes(query)) ||
+          item.amount.toString().includes(query);
+
+        // Region Category Match
+        let matchesRegion = true;
+        if (selectedRegionFilter !== 'ALL') {
+          if (selectedRegionFilter === 'Guntur') {
+            matchesRegion = item.region.includes('Guntur') || item.region.includes('Highway');
+          } else if (selectedRegionFilter === 'Vijayawada') {
+            matchesRegion = item.region.includes('Vijayawada');
+          } else if (selectedRegionFilter === 'Capital') {
+            matchesRegion = item.region.includes('Capital') || item.region.includes('Amaravati');
+          } else if (selectedRegionFilter === 'Tenali') {
+            matchesRegion = item.region.includes('Tenali') || item.region.includes('Duggirala') || item.region.includes('Kolipara');
+          } else if (selectedRegionFilter === 'Coastal') {
+            matchesRegion = item.region.includes('Coastal') || item.region.includes('Repalle') || item.region.includes('Bapatla') || item.region.includes('Ponnur');
+          }
+        }
+
+        return matchesQuery && matchesRegion;
+      });
+
+      renderOfficialFeeTable(filtered);
+    }
+
+    /**
+     * Pre-select boarding point if provided in URL (e.g. ?boardingPoint=Guntur)
+     */
+    function handleUrlPreselect() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const prePoint = urlParams.get('boardingPoint');
+      if (prePoint) {
+        const select = document.getElementById('calcBoardingSelect');
+        if (select) {
+          select.value = prePoint;
+          handleCalculatorChange(prePoint);
+        }
+      }
+    }
+  </script>
+</body>
+</html>

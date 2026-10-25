@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Zentra University Transport</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .auth-container {
+      max-width: 460px;
+      margin: 3.5rem auto;
+      padding: 0 1.25rem;
+    }
+    .auth-tabs {
+      display: flex;
+      background: var(--bg-subtle);
+      padding: 0.35rem;
+      border-radius: var(--radius-md);
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--border-color);
+    }
+    .auth-tab {
+      flex: 1;
+      text-align: center;
+      padding: 0.55rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: none;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .auth-tab.active {
+      background: #ffffff;
+      color: var(--primary-navy);
+      box-shadow: var(--shadow-sm);
+    }
+    .demo-accounts-box {
+      margin-top: 1.75rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-color);
+    }
+    .demo-pill-btn {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.35rem 0.65rem;
+      font-size: 0.76rem;
+      color: var(--primary-navy);
+      cursor: pointer;
+      font-weight: 600;
+      transition: all var(--transition-fast);
+      margin: 0.25rem;
+      display: inline-block;
+    }
+    .demo-pill-btn:hover {
+      background: var(--accent-glow);
+      border-color: var(--accent-blue);
+      color: var(--accent-blue);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header"></header>
+
+  <div class="auth-container">
+    <div class="card" style="box-shadow: var(--shadow-lg);">
+      <div class="card-body" style="padding: 2.25rem 2rem;">
+        
+        <div style="text-align: center; margin-bottom: 1.75rem;">
+          <div style="font-size: 2.2rem; margin-bottom: 0.35rem;">🚌</div>
+          <h2 style="color: var(--primary-navy); font-weight: 800; font-size: 1.6rem;">Sign In to Zentra</h2>
+          <p style="color: var(--text-secondary); font-size: 0.88rem; margin-top: 0.25rem;">Select your role to access your campus transit portal</p>
+        </div>
+
+        <!-- Role Tabs -->
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-role="STUDENT" onclick="setLoginRole('STUDENT')">Student</button>
+          <button class="auth-tab" data-role="EMPLOYEE" onclick="setLoginRole('EMPLOYEE')">Employee</button>
+          <button class="auth-tab" data-role="ADMIN" onclick="setLoginRole('ADMIN')">Admin</button>
+        </div>
+
+        <!-- Login Form -->
+        <form onsubmit="handleLoginSubmit(event)">
+          <div class="form-group">
+            <label class="form-label" id="loginIdLabel">Registration ID</label>
+            <input type="text" class="form-control" id="loginId" placeholder="e.g. 21BCE1001" required>
+            <span class="form-error" id="loginIdError"></span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" id="loginPassword" placeholder="••••••••" required>
+            <span class="form-error" id="loginPasswordError"></span>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" id="loginSubmitBtn" style="width: 100%; margin-top: 0.5rem;">
+            Sign In
+          </button>
+        </form>
+
+        <div style="text-align: center; margin-top: 1.25rem; font-size: 0.88rem; color: var(--text-secondary);">
+          Don't have an account? <a href="signup.html" style="font-weight: 600;">Sign Up Here</a>
+        </div>
+
+        <!-- Quick Demo Switcher for University Presentation -->
+        <div class="demo-accounts-box">
+          <div style="font-size: 0.76rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem; text-align: center;">
+            ⚡ Quick Demo Autofill (1-Click)
+          </div>
+          <div style="display: flex; flex-wrap: wrap; justify-content: center;" id="demoPillsArea">
+            <button class="demo-pill-btn" onclick="autofillDemoAccount('STUDENT', '21BCE1001', 'password123')">
+              👨‍🎓 Student: Rahul (Paid/Approved)
+            </button>
+            <button class="demo-pill-btn" onclick="autofillDemoAccount('STUDENT', '23BME1089', 'password123')">
+              👨‍🎓 Student: Amit (Unpaid Fee)
+            </button>
+            <button class="demo-pill-btn" onclick="autofillDemoAccount('EMPLOYEE', 'EMP201', 'password123')">
+              👨‍🏫 Faculty: Dr. Rajesh (Approved)
+            </button>
+            <button class="demo-pill-btn" onclick="autofillDemoAccount('ADMIN', 'ADMIN01', 'admin')">
+              🛡️ Transport Admin
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer"></footer>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/notification.js"></script>
+  <script src="js/ai-assistant.js"></script>
+</body>
+</html>

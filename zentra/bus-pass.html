@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Bus Pass - Zentra</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header"></header>
+
+  <!-- Pass View Container -->
+  <main class="container" style="padding: 3rem 1.5rem 5rem;">
+    
+    <div class="no-print" style="text-align: center; margin-bottom: 2rem;">
+      <div class="section-tag">Digital Pass Verification</div>
+      <h1 class="section-title" style="font-size: 2.2rem; margin-bottom: 0.35rem;">Official Campus Transit Pass</h1>
+      <p class="section-desc" style="margin: 0;">Present this digital QR pass to the bus conductor upon boarding.</p>
+    </div>
+
+    <!-- Pass Mount Target -->
+    <div class="pass-container" id="passMountTarget">
+      <!-- Injected by JavaScript -->
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="no-print" id="passActionsContainer" style="display:flex; justify-content:center; gap:1rem; margin-top:2rem; flex-wrap:wrap;">
+      <button class="btn btn-primary" onclick="window.print()">
+        🖨️ Print / Download PDF
+      </button>
+      <button class="btn btn-outline" id="backToDashBtn" onclick="goBackToDashboard()">
+        ← Back to Dashboard
+      </button>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer"></footer>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/notification.js"></script>
+  <script src="js/ai-assistant.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderDigitalPassView();
+    });
+
+    function goBackToDashboard() {
+      const user = getLoggedInUser();
+      if (!user) {
+        window.location.href = 'index.html';
+        return;
+      }
+      if (user.role === 'EMPLOYEE') window.location.href = 'employee-dashboard.html';
+      else if (user.role === 'ADMIN') window.location.href = 'admin-dashboard.html';
+      else window.location.href = 'student-dashboard.html';
+    }
+
+    function renderDigitalPassView() {
+      const user = getLoggedInUser();
+      const mount = document.getElementById('passMountTarget');
+      const actions = document.getElementById('passActionsContainer');
+      if (!mount) return;
+
+      if (!user) {
+        mount.innerHTML = `
+          <div class="card" style="text-align:center; padding:3rem 1.5rem;">
+            <h3 style="color:var(--primary-navy); margin-bottom:0.5rem;">Authentication Required</h3>
+            <p style="color:var(--text-secondary); margin-bottom:1.5rem;">Please sign in to view your authorized university transit pass.</p>
+            <a href="login.html" class="btn btn-primary">Sign In</a>
+          </div>
+        `;
+        if (actions) actions.style.display = 'none';
+        return;
+      }
+
+      // Check if user has an active pass
+      const passes = loadData(STORAGE_KEYS.BUS_PASSES, []);
+      let activePass = passes.find(p => p.applicantId.toUpperCase() === user.id.toUpperCase() && p.status === 'ACTIVE');
+
+      // If viewing from admin mode or param
+      const urlParams = new URLSearchParams(window.location.search);
+      const queryPassId = urlParams.get('passId');
+      if (queryPassId) {
+        const found = passes.find(p => p.passId === queryPassId);
+        if (found) activePass = found;
+      }
+
+      if (!activePass) {
+        mount.innerHTML = `
+          <div class="card" style="text-align:center; padding:3.5rem 1.5rem;">
+            <div style="font-size:3rem; margin-bottom:0.75rem;">🎫</div>
+            <h2 style="color:var(--primary-navy); margin-bottom:0.5rem;">No Active Bus Pass Found</h2>
+            <p style="color:var(--text-secondary); max-width:480px; margin:0 auto 1.5rem; font-size:0.92rem;">
+              You do not have an approved bus pass issued for the current academic session. Make sure your application has been approved by the Transport Authority.
+            </p>
+            <div style="display:flex; justify-content:center; gap:1rem;">
+              <button onclick="goBackToDashboard()" class="btn btn-outline">Go to Dashboard</button>
+              <a href="application.html" class="btn btn-primary">Apply for Pass</a>
+            </div>
+          </div>
+        `;
+        if (actions) actions.style.display = 'none';
+        return;
+      }
+
+      // Render Active Digital Bus Pass Card
+      mount.innerHTML = `
+        <div class="bus-pass-card" id="printablePassCard">
+          <div class="pass-header">
+            <div>
+              <div class="pass-brand">🚌 ZEN<span>TRA</span></div>
+              <div class="pass-subtitle">CENTRAL UNIVERSITY TRANSPORT AUTHORITY</div>
+            </div>
+            <span class="badge badge-approved" style="font-size:0.85rem; padding:0.35rem 0.85rem; background:#10b981; color:#ffffff; border:none;">
+              ACTIVE PASS
+            </span>
+          </div>
+
+          <div class="pass-body">
+            <div>
+              <div style="margin-bottom: 1.25rem;">
+                <div class="pass-field-label">Passenger Name</div>
+                <div style="font-size: 1.35rem; font-weight: 800; color: #ffffff;">${activePass.applicantName}</div>
+                <div style="font-size: 0.82rem; color: var(--accent-cyan); font-weight: 600;">
+                  ${activePass.applicantType} • ID: ${activePass.applicantId}
+                </div>
+              </div>
+
+              <div class="pass-info-grid">
+                <div>
+                  <span class="pass-field-label">Department</span>
+                  <span class="pass-field-value">${activePass.department}</span>
+                </div>
+                <div>
+                  <span class="pass-field-label">Academic Year</span>
+                  <span class="pass-field-value">${activePass.academicYear}</span>
+                </div>
+                <div>
+                  <span class="pass-field-label">Assigned Route</span>
+                  <span class="pass-field-value" style="color:var(--accent-teal);">${activePass.routeNumber}</span>
+                </div>
+                <div>
+                  <span class="pass-field-label">Assigned Bus</span>
+                  <span class="pass-field-value">${activePass.busNumber}</span>
+                </div>
+                <div style="grid-column: 1 / -1;">
+                  <span class="pass-field-label">Designated Boarding Point</span>
+                  <span class="pass-field-value" style="font-size:1.05rem; color:#f8fafc;">📍 ${activePass.boardingPoint}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dynamic Pure JS QR Code Box -->
+            <div class="pass-qr-box">
+              <canvas id="passQrCanvas" class="pass-qr-canvas"></canvas>
+              <div class="pass-qr-caption">SCAN TO VERIFY</div>
+            </div>
+          </div>
+
+          <div class="pass-footer">
+            <div>
+              <div>Pass ID: <strong style="color:var(--accent-teal);">${activePass.passId}</strong></div>
+              <div>Route Corridor: ${activePass.routeName}</div>
+            </div>
+            <div style="text-align: right;">
+              <div>Valid From: <strong>${activePass.validFrom}</strong></div>
+              <div>Valid Until: <strong style="color:#ffffff;">${activePass.validUntil}</strong></div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      // Render Canvas QR Code using pure JavaScript algorithm
+      const canvas = document.getElementById('passQrCanvas');
+      const payload = `ZENTRA:${activePass.passId}|ID:${activePass.applicantId}|NAME:${activePass.applicantName}|BUS:${activePass.busNumber}|VALID:${activePass.validUntil}`;
+      renderPassQRCode(canvas, payload);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Bus Routes - Zentra</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header"></header>
+
+  <!-- Page Header -->
+  <section style="background: radial-gradient(circle at top right, rgba(0, 180, 216, 0.08), transparent 50%), linear-gradient(180deg, #ffffff 0%, var(--bg-main) 100%); padding: 3.5rem 0 2rem; border-bottom: 1px solid var(--border-color);">
+    <div class="container">
+      <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; flex-wrap: wrap;">
+        <span class="badge-ay badge-ay-official">📅 Academic Year 2026–27</span>
+        <span class="section-tag" style="margin: 0;">Transit Corridors</span>
+      </div>
+      <h1 class="section-title" style="font-size: 2.2rem; margin-bottom: 0.5rem;">University Bus Routes & Live Seats</h1>
+      <p class="section-desc" style="margin: 0; max-width: 650px;">
+        Browse all authorized university routes, check departure schedules, and inspect live seat availability before submitting your pass application for <strong>Academic Year 2026–27</strong>.
+      </p>
+
+      <!-- Announcement / Fee Link Banner -->
+      <div style="margin-top: 1.5rem; background: var(--bg-surface); border: 1px solid var(--border-color); border-left: 4px solid var(--accent-blue); border-radius: var(--radius-md); padding: 0.85rem 1.25rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+        <div style="font-size: 0.88rem; color: var(--text-secondary);">
+          <strong style="color: var(--primary-navy);">Official 2026–27 Fee Schedule:</strong> Bus fees range from ₹22,400 (Tenali) to ₹56,400 (Vijayawada) across 28 boarding points.
+        </div>
+        <a href="fee-structure.html" class="btn btn-outline btn-sm">
+          View Fee Details (AY 2026–27) ➔
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Routes Explorer Container -->
+  <main class="container" style="padding: 2.5rem 1.5rem 4.5rem;">
+    
+    <!-- Search & Filter Controls -->
+    <div class="route-filter-bar">
+      <div style="flex: 2; min-width: 260px;">
+        <input type="text" class="form-control" id="routeSearchInput" placeholder="🔍 Search route name, starting city, bus number, or stop...">
+      </div>
+
+      <div style="flex: 1; min-width: 180px;">
+        <select class="form-control" id="routeStatusFilter">
+          <option value="ALL">All Seat Statuses</option>
+          <option value="AVAILABLE">Seats Available (> 5)</option>
+          <option value="LOW">Low Availability (≤ 5)</option>
+          <option value="FULL">Route Full (0 Seats)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Dynamic Route Cards Grid (Populated purely by JavaScript in routes.js) -->
+    <div class="routes-grid" id="routesContainer">
+      <!-- Dynamic cards rendered by routes.js -->
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer"></footer>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/routes.js"></script>
+  <script src="js/notification.js"></script>
+  <script src="js/ai-assistant.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initRoutesExplorer();
+    });
+  </script>
+</body>
+</html>

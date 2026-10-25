@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply for Bus Pass - Zentra</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .wizard-container {
+      max-width: 820px;
+      margin: 3rem auto;
+      padding: 0 1.25rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header"></header>
+
+  <!-- Main Application Container -->
+  <main class="wizard-container" id="wizardContainer">
+    
+    <div style="text-align: center; margin-bottom: 2rem;">
+      <div style="display: flex; justify-content: center; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; flex-wrap: wrap;">
+        <span class="badge-ay badge-ay-official">📅 Academic Year 2026–27</span>
+        <span class="section-tag" style="margin: 0;">Transit Enrollment</span>
+      </div>
+      <h1 class="section-title" style="font-size: 2.2rem; margin-bottom: 0.35rem;">Bus Pass Application</h1>
+      <p class="section-desc" style="margin: 0;">Complete this 6-step form to request your campus bus pass for <strong>Academic Year 2026–27</strong>.</p>
+    </div>
+
+    <!-- Wizard Steps Indicator -->
+    <div class="wizard-steps">
+      <div class="wizard-step-item active" data-step="1">
+        <div class="wizard-step-num">1</div>
+        <span>Details</span>
+      </div>
+      <div class="wizard-step-item" data-step="2">
+        <div class="wizard-step-num">2</div>
+        <span>Route</span>
+      </div>
+      <div class="wizard-step-item" data-step="3">
+        <div class="wizard-step-num">3</div>
+        <span>Boarding</span>
+      </div>
+      <div class="wizard-step-item" data-step="4">
+        <div class="wizard-step-num">4</div>
+        <span>Seats</span>
+      </div>
+      <div class="wizard-step-item" data-step="5">
+        <div class="wizard-step-num">5</div>
+        <span>Review</span>
+      </div>
+      <div class="wizard-step-item" data-step="6">
+        <div class="wizard-step-num">6</div>
+        <span>Submit</span>
+      </div>
+    </div>
+
+    <!-- Wizard Panes Card -->
+    <div class="wizard-content">
+
+      <!-- STEP 1: Applicant Details (Auto-retrieved) -->
+      <div class="wizard-pane active" data-step="1">
+        <h3 style="color:var(--primary-navy); margin-bottom:0.5rem;">Step 1: Verify Applicant Information</h3>
+        <p style="color:var(--text-secondary); font-size:0.88rem; margin-bottom:1.5rem;">
+          These details are automatically retrieved from your authenticated campus profile.
+        </p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="step1Name" readonly>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Registration / Employee ID</label>
+            <input type="text" class="form-control" id="step1Id" readonly>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Applicant Category</label>
+            <input type="text" class="form-control" id="step1Type" readonly>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Department / School</label>
+            <input type="text" class="form-control" id="step1Department" readonly>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Year of Study / Designation</label>
+            <input type="text" class="form-control" id="step1Year" readonly>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Contact Phone</label>
+            <input type="text" class="form-control" id="step1Phone" readonly>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">University Email</label>
+          <input type="email" class="form-control" id="step1Email" readonly>
+        </div>
+      </div>
+
+      <!-- STEP 2: Select Route -->
+      <div class="wizard-pane" data-step="2">
+        <h3 style="color:var(--primary-navy); margin-bottom:0.5rem;">Step 2: Choose Your Commute Route</h3>
+        <p style="color:var(--text-secondary); font-size:0.88rem; margin-bottom:1.5rem;">
+          Select the designated campus transit corridor you plan to commute along daily.
+        </p>
+
+        <div class="form-group">
+          <label class="form-label">Select Bus Route *</label>
+          <select class="form-control" id="appRouteSelect" required>
+            <option value="">-- Choose a Bus Route --</option>
+          </select>
+        </div>
+
+        <div id="step2FeeNotice" style="margin-bottom: 1rem;"></div>
+
+        <div style="background:var(--bg-subtle); padding:1rem; border-radius:var(--radius-md); font-size:0.85rem; color:var(--text-secondary); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+          <div>
+            💡 Tip: You can review detailed schedules and road stops on our <a href="routes.html" target="_blank" style="font-weight:600;">Routes Explorer</a>.
+          </div>
+          <a href="fee-structure.html" target="_blank" style="font-size:0.82rem; color:var(--accent-blue); font-weight:600;">
+            View 2026–27 Fee Schedule ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- STEP 3: Select Boarding Point -->
+      <div class="wizard-pane" data-step="3">
+        <h3 style="color:var(--primary-navy); margin-bottom:0.5rem;">Step 3: Select Boarding Point</h3>
+        <p style="color:var(--text-secondary); font-size:0.88rem; margin-bottom:1.5rem;">
+          Choose your morning pickup location from the official stops on your chosen route.
+        </p>
+
+        <div class="form-group">
+          <label class="form-label">Designated Boarding Point / Bus Stop *</label>
+          <select class="form-control" id="appBoardingSelect" required>
+            <option value="">-- Select Route First in Step 2 --</option>
+          </select>
+        </div>
+
+        <div id="step3FeeNotice" style="margin-top: 1rem;"></div>
+      </div>
+
+      <!-- STEP 4: Check Seat Availability -->
+      <div class="wizard-pane" data-step="4">
+        <h3 style="color:var(--primary-navy); margin-bottom:0.5rem;">Step 4: Real-Time Seat Availability Check</h3>
+        <p style="color:var(--text-secondary); font-size:0.88rem; margin-bottom:1.5rem;">
+          Our system dynamically calculates available seating capacity to guarantee safe transit.
+        </p>
+
+        <!-- Seat Check Card (Injected dynamically by application.js) -->
+        <div id="seatCheckCard">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- STEP 5: Review Application -->
+      <div class="wizard-pane" data-step="5">
+        <h3 style="color:var(--primary-navy); margin-bottom:0.5rem;">Step 5: Review & Confirm Details</h3>
+        <p style="color:var(--text-secondary); font-size:0.88rem; margin-bottom:1.5rem;">
+          Please review your applicant profile and commute selection before submitting.
+        </p>
+
+        <div id="reviewSummaryContainer">
+          <!-- Summary injected by application.js -->
+        </div>
+
+        <div style="margin-top:1.5rem; padding:0.85rem; background:var(--accent-glow); border-radius:var(--radius-md); font-size:0.82rem; color:var(--accent-blue);">
+          ℹ️ Submitting this form creates a PENDING application for transport authority approval. Seats are consumed only after official approval.
+        </div>
+      </div>
+
+      <!-- STEP 6: Confirmation -->
+      <div class="wizard-pane" data-step="6">
+        <div id="step6Confirmation">
+          <!-- Populated on successful submission -->
+        </div>
+      </div>
+
+      <!-- Wizard Navigation Buttons -->
+      <div class="wizard-footer">
+        <button type="button" class="btn btn-outline" id="wizardPrevBtn" onclick="prevWizardStep()" style="display:none;">
+          ← Previous Step
+        </button>
+        <div></div>
+        <button type="button" class="btn btn-primary" id="wizardNextBtn" onclick="nextWizardStep()">
+          Proceed to Next Step →
+        </button>
+        <button type="button" class="btn btn-success" id="wizardSubmitBtn" onclick="submitBusPassApplication()" style="display:none;">
+          ✓ Confirm & Submit Application
+        </button>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer"></footer>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/payment.js"></script>
+  <script src="js/routes.js"></script>
+  <script src="js/application.js"></script>
+  <script src="js/notification.js"></script>
+  <script src="js/ai-assistant.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initApplicationWizard();
+    });
+  </script>
+</body>
+</html>

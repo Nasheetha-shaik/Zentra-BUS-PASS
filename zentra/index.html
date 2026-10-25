@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zentra - Your Campus Bus Pass, Simplified</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Site Navigation Header (Injected dynamically via app.js) -->
+  <header class="site-header"></header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-tag">
+        <span>🚌 Official University Transit System</span>
+      </div>
+      <h1 class="hero-title">
+        Your Campus Bus Pass, <span>Simplified.</span>
+      </h1>
+      <p class="hero-subtitle">
+        Pay your transport fee, apply for your bus pass, check seat availability and track your application — all in one place.
+      </p>
+      <div class="hero-cta">
+        <a href="application.html" class="btn btn-primary btn-lg">Apply for Bus Pass</a>
+        <a href="routes.html" class="btn btn-outline btn-lg">Explore Routes</a>
+      </div>
+
+      <!-- Quick Metrics Counter Strip -->
+      <div style="display:flex; justify-content:center; gap:2.5rem; margin-top:3.5rem; flex-wrap:wrap;">
+        <div>
+          <div style="font-size:2rem; font-weight:800; color:var(--primary-navy);">5 Active</div>
+          <div style="font-size:0.8rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px;">Campus Routes</div>
+        </div>
+        <div style="width:1px; background:var(--border-color); height:45px;"></div>
+        <div>
+          <div style="font-size:2rem; font-weight:800; color:var(--status-approved);">180+ Seats</div>
+          <div style="font-size:0.8rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px;">Fleet Capacity</div>
+        </div>
+        <div style="width:1px; background:var(--border-color); height:45px;"></div>
+        <div>
+          <div style="font-size:2rem; font-weight:800; color:var(--accent-blue);">100% Digital</div>
+          <div style="font-size:0.8rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px;">QR Verification</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual 6-Step Workflow Process Strip -->
+  <section class="process-section" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Transit Journey</div>
+        <h2 class="section-title">How Zentra Works</h2>
+        <p class="section-desc">From fee clearance to your digital QR pass in 6 straightforward steps.</p>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="process-icon">💳</div>
+          <div class="process-name">1. PAY</div>
+          <div class="process-detail">Clear transport fee online</div>
+        </div>
+        <div class="process-arrow">➔</div>
+
+        <div class="process-step">
+          <div class="process-icon">🗺️</div>
+          <div class="process-name">2. CHOOSE ROUTE</div>
+          <div class="process-detail">Select designated corridor</div>
+        </div>
+        <div class="process-arrow">➔</div>
+
+        <div class="process-step">
+          <div class="process-icon">💺</div>
+          <div class="process-name">3. CHECK SEATS</div>
+          <div class="process-detail">Verify real-time availability</div>
+        </div>
+        <div class="process-arrow">➔</div>
+
+        <div class="process-step">
+          <div class="process-icon">📝</div>
+          <div class="process-name">4. APPLY</div>
+          <div class="process-detail">Submit boarding point details</div>
+        </div>
+        <div class="process-arrow">➔</div>
+
+        <div class="process-step">
+          <div class="process-icon">🏛️</div>
+          <div class="process-name">5. APPROVAL</div>
+          <div class="process-detail">Authority seat verification</div>
+        </div>
+        <div class="process-arrow">➔</div>
+
+        <div class="process-step">
+          <div class="process-icon">🎫</div>
+          <div class="process-name">6. DIGITAL PASS</div>
+          <div class="process-detail">Instant QR pass on device</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Routes Preview Section -->
+  <section class="container" style="padding: 4rem 1.5rem;">
+    <div class="section-header">
+      <div class="section-tag">Real-Time Fleet</div>
+      <h2 class="section-title">Available Campus Bus Routes</h2>
+      <p class="section-desc">Check live seat allocations and departure timings across all university transit routes.</p>
+    </div>
+
+    <!-- Routes Container (Injected by JavaScript) -->
+    <div class="routes-grid" id="routesContainer">
+      <!-- Dynamic route cards injected by routes.js -->
+    </div>
+
+    <div style="text-align: center; margin-top: 2.5rem;">
+      <a href="routes.html" class="btn btn-outline btn-lg">View All Routes & Stops ➔</a>
+    </div>
+  </section>
+
+  <!-- Dedicated Bus Fee Details Section (Academic Year 2026–27) -->
+  <section style="background: linear-gradient(180deg, var(--bg-main) 0%, #ffffff 100%); border-top: 1px solid var(--border-color); padding: 4.5rem 0;" id="fees">
+    <div class="container">
+      <div class="section-header">
+        <div style="display: flex; justify-content: center; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+          <span class="badge-ay badge-ay-official">📅 Academic Year 2026–27</span>
+          <span class="badge-ay">Official University Schedule</span>
+        </div>
+        <h2 class="section-title">Bus Fee Details – Academic Year 2026–27</h2>
+        <p class="section-desc">
+          Official transport fees approved under Proceedings F. No. RO/RA/21-26/A256, dated 27.05.2026. Fees are determined strictly by boarding location and transit corridor.
+        </p>
+      </div>
+
+      <!-- Quick Fee Slab Highlights Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem;">
+        <div class="card" style="border-top: 4px solid var(--status-approved); padding: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <span style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Tenali Urban</span>
+            <span class="badge-ay" style="font-size: 0.7rem; padding: 0.15rem 0.5rem;">AY 2026–27</span>
+          </div>
+          <div style="font-size: 1.75rem; font-weight: 800; color: var(--primary-navy); margin-bottom: 0.25rem;">
+            <span style="color: var(--accent-blue);">₹</span>22,400
+          </div>
+          <div style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+            Route 03 (Tenali Railway Station, Morrispet, Chenchupet)
+          </div>
+          <a href="fee-structure.html?boardingPoint=Tenali" class="btn btn-outline btn-sm" style="width: 100%;">View Details</a>
+        </div>
+
+        <div class="card" style="border-top: 4px solid var(--accent-blue); padding: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <span style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Guntur Urban</span>
+            <span class="badge-ay" style="font-size: 0.7rem; padding: 0.15rem 0.5rem;">AY 2026–27</span>
+          </div>
+          <div style="font-size: 1.75rem; font-weight: 800; color: var(--primary-navy); margin-bottom: 0.25rem;">
+            <span style="color: var(--accent-blue);">₹</span>29,300
+          </div>
+          <div style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+            Route 01 (Guntur Bus Station, Market Center, Lodge Center)
+          </div>
+          <a href="fee-structure.html?boardingPoint=Guntur" class="btn btn-outline btn-sm" style="width: 100%;">View Details</a>
+        </div>
+
+        <div class="card" style="border-top: 4px solid #00b4d8; padding: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <span style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Mangalagiri</span>
+            <span class="badge-ay" style="font-size: 0.7rem; padding: 0.15rem 0.5rem;">AY 2026–27</span>
+          </div>
+          <div style="font-size: 1.75rem; font-weight: 800; color: var(--primary-navy); margin-bottom: 0.25rem;">
+            <span style="color: var(--accent-blue);">₹</span>41,400
+          </div>
+          <div style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+            Route 04 (Mangalagiri Bypass, Old Bus Stand, NRI Circle)
+          </div>
+          <a href="fee-structure.html?boardingPoint=Mangalagiri" class="btn btn-outline btn-sm" style="width: 100%;">View Details</a>
+        </div>
+
+        <div class="card" style="border-top: 4px solid var(--secondary-navy); padding: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <span style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Vijayawada Metro</span>
+            <span class="badge-ay" style="font-size: 0.7rem; padding: 0.15rem 0.5rem;">AY 2026–27</span>
+          </div>
+          <div style="font-size: 1.75rem; font-weight: 800; color: var(--primary-navy); margin-bottom: 0.25rem;">
+            <span style="color: var(--accent-blue);">₹</span>56,400
+          </div>
+          <div style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+            Route 02 (PNBS Vijayawada, Benz Circle, Kanuru Cross)
+          </div>
+          <a href="fee-structure.html?boardingPoint=Vijayawada" class="btn btn-outline btn-sm" style="width: 100%;">View Details</a>
+        </div>
+      </div>
+
+      <!-- Action Banner & Concession Notes -->
+      <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; box-shadow: var(--shadow-sm);">
+        <div style="max-width: 680px;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem;">
+            <span style="font-size: 1.2rem;">📋</span>
+            <h3 style="color: var(--primary-navy); margin: 0; font-size: 1.15rem;">All 28 Official Boarding Points & Regional Slabs</h3>
+          </div>
+          <p style="color: var(--text-secondary); font-size: 0.88rem; margin: 0;">
+            Includes Kaza (₹39,100), Duggirala (₹29,900), Ponnur (₹30,500), Bapatla (₹44,900), Chilakaluripeta & Repalle (₹53,500), and other authorized corridors. Concession reimbursements available for students with SGPA ≥ 7.00.
+          </p>
+        </div>
+
+        <div>
+          <a href="fee-structure.html" class="btn btn-primary btn-lg" style="white-space: nowrap;">
+            Explore All 28 Fee Slabs (AY 2026–27) ➔
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features Grid -->
+  <section style="background-color: var(--bg-surface); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 4.5rem 0;" id="about">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Key Features</div>
+        <h2 class="section-title">Engineered for Seamless University Commuting</h2>
+        <p class="section-desc">Modern digital infrastructure replacing outdated paper-based bus token systems.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-box">💳</div>
+          <h3 class="feature-title">Instant Fee Verification</h3>
+          <p class="feature-text">Automated payment reconciliation ensures student transport fees are cleared before bus-pass issuance.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">💺</div>
+          <h3 class="feature-title">Dynamic Seat Tracking</h3>
+          <p class="feature-text">Real-time seat calculation prevents overcrowding by locking applications when a route reaches capacity.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">🎫</div>
+          <h3 class="feature-title">Digital QR Bus Pass</h3>
+          <p class="feature-text">High-resolution algorithmic QR passes verifiable by bus conductors directly from smartphone screens.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">👥</div>
+          <h3 class="feature-title">Faculty & Staff Benefit</h3>
+          <p class="feature-text">Automated fee waiver and priority enrollment for university professors and administrative personnel.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">🤖</div>
+          <h3 class="feature-title">Zentra AI Assistant</h3>
+          <p class="feature-text">24/7 rule-based knowledge bot to answer commute queries, check live seats, and guide first-time applicants.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">🔒</div>
+          <h3 class="feature-title">Duplicate Prevention</h3>
+          <p class="feature-text">Strict validation prevents multiple simultaneous applications per Registration ID or Employee ID.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Section: Student vs Employee -->
+  <section class="container" style="padding: 4.5rem 1.5rem;">
+    <div class="section-header">
+      <div class="section-tag">Pass Categories</div>
+      <h2 class="section-title">Student Pass vs Employee Pass</h2>
+      <p class="section-desc">Tailored transit schemes designed to cater to our diverse campus community.</p>
+    </div>
+
+    <div class="comparison-grid">
+      <!-- Student Pass Card -->
+      <div class="pass-type-card" style="border-top: 4px solid var(--accent-blue);">
+        <span class="pass-type-badge">Undergraduate & Postgraduate</span>
+        <h3 class="pass-type-title">Student Bus Pass</h3>
+        <p style="color:var(--text-secondary); font-size:0.9rem;">
+          Subsidized campus transit for all enrolled academic students across all university departments.
+        </p>
+
+        <ul class="pass-type-list">
+          <li><span class="check">✓</span> Official Bus Fees: <strong>₹22,400 – ₹56,400 (AY 2026–27)</strong></li>
+          <li><span class="check">✓</span> 7.00 SGPA Merit Scholarship Concession via NEFT</li>
+          <li><span class="check">✓</span> Choice of 28 boarding points across stops</li>
+          <li><span class="check">✓</span> Live timeline application tracking</li>
+          <li><span class="check">✓</span> Printable official fee receipt with bank reference</li>
+        </ul>
+
+        <a href="application.html" class="btn btn-primary" style="width: 100%;">Apply as Student</a>
+      </div>
+
+      <!-- Employee Pass Card -->
+      <div class="pass-type-card" style="border-top: 4px solid #7c3aed;">
+        <span class="pass-type-badge" style="color:#7c3aed;">Faculty & University Staff</span>
+        <h3 class="pass-type-title">Employee Bus Pass</h3>
+        <p style="color:var(--text-secondary); font-size:0.9rem;">
+          Specialized transit assistance for professors, lecturers, researchers, and campus support staff.
+        </p>
+
+        <ul class="pass-type-list">
+          <li><span class="check">✓</span> <strong>100% Subsidized (No transport fee required)</strong></li>
+          <li><span class="check">✓</span> Instant employee verification via Employee ID</li>
+          <li><span class="check">✓</span> Express authority pass approval</li>
+          <li><span class="check">✓</span> Annual QR transit pass valid for all academic terms</li>
+          <li><span class="check">✓</span> Single active pass protection</li>
+        </ul>
+
+        <a href="application.html" class="btn btn-outline" style="width: 100%; border-color:#7c3aed; color:#7c3aed;">Apply as Employee</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive FAQs Section -->
+  <section style="background-color: var(--bg-surface); border-top: 1px solid var(--border-color); padding: 4rem 0;" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Got Questions?</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-desc">Clear answers to common questions about passes, seats, and fees.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Can I apply for a bus pass before paying my transport fee?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            No. For students, transport fee clearance is mandatory prior to submitting an application. The system will prevent submission until your fee payment is marked PAID. Employees are exempt from fee payment.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Does submitting an application reserve my seat immediately?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            No. Submitting an application sets your status to PENDING. Available seats are only decremented once the Transport Authority officially APPROVES your application to prevent phantom seat locking.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>What happens if a bus route is marked 'Route Full'?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            If a route has 0 available seats, applications are blocked. However, you can click "Notify Transport Authority" on the route card to request an additional bus or route rescheduling.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Can I apply for multiple routes at the same time?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            No. Zentra strictly enforces a single active application rule per Registration ID or Employee ID. You cannot submit another application while one is already pending or approved.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Banner -->
+  <section class="container" style="padding: 4rem 1.5rem; text-align: center;">
+    <div style="background: linear-gradient(135deg, var(--primary-navy), var(--secondary-navy)); color: #ffffff; border-radius: var(--radius-lg); padding: 3.5rem 2rem; box-shadow: var(--shadow-lg);">
+      <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 0.75rem;">Ready to Secure Your Campus Seat?</h2>
+      <p style="color: #cbd5e1; max-width: 600px; margin: 0 auto 2rem; font-size: 1.05rem;">
+        Get your university transport pass in minutes. Enjoy hassle-free daily commuting with real-time tracking.
+      </p>
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="application.html" class="btn btn-accent btn-lg">Apply for Bus Pass</a>
+        <a href="login.html" class="btn btn-outline btn-lg" style="color: #ffffff; border-color: rgba(255,255,255,0.3);">Sign In to Portal</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (Injected dynamically via app.js) -->
+  <footer class="site-footer"></footer>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/routes.js"></script>
+  <script src="js/ai-assistant.js"></script>
+
+  <script>
+    // FAQ Accordion Toggle
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const isActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+      if (!isActive) item.classList.add('active');
+    }
+
+    // Load initial routes preview
+    document.addEventListener('DOMContentLoaded', () => {
+      const routes = loadData(STORAGE_KEYS.ROUTES, []);
+      renderRouteCards(routes.slice(0, 3)); // show first 3 routes on homepage
+    });
+  </script>
+</body>
+</html>
